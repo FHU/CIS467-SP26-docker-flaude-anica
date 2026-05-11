@@ -81,7 +81,16 @@ curl -I http://localhost:8080/
 
 ### 0.1 - Reflection Question
 > What headers does nginx send by default? Are any of them surprising?
-> ANSWER HERE
+The comment below contains the headers sent. The only unexpected one is the ETag. I'm not sure what that means. Other than that they all seem like pretty normal tags.
+<!-- HTTP/1.1 200 OK
+Server: nginx/1.29.5
+Date: Mon, 11 May 2026 01:53:18 GMT
+Content-Type: text/html
+Content-Length: 20272
+Last-Modified: Mon, 09 Mar 2026 18:24:49 GMT
+Connection: keep-alive
+ETag: "69af1071-4f30"
+Accept-Ranges: bytes -->
 
 ```
 HTTP/1.1 200 OK
@@ -123,6 +132,7 @@ check the **Response Headers** panel.
 
 ### 1.1 Reflection Question
 > Why does `gzip_min_length` exist? What's the cost of compressing a 200-byte file?
+I don't know the exact cost, but compressing a file takes time and resources. If zipping the file takes more effort than keeping it normal, then there's no point. So a minimum length ensures that resources won't be wasted.
 
 ---
 
@@ -159,8 +169,10 @@ Confirm different `Cache-Control` values on each response.
 
 ### 2.1 - Reflection Question
 > Why would caching `index.html` aggressively be dangerous for a single-page app?
+I'm not entirely sure, but it might be unnecessary caching. Maybe it would cause errors.
 > What would happen if a user's browser cached a stale `index.html` pointing to
 > old JS bundles?
+The page would possibly have the wrong information on it, or even break. You want the page to be up to date.
 
 ---
 
@@ -197,6 +209,8 @@ a tunneling tool, or deploy to a VPS for full scoring).
 > Break the CSP intentionally — add an inline `<script>` tag to `index.html`
 > and observe the browser console error. What does this teach you about
 > how CSP is enforced?
+
+ADD ANSWER HERE
 
 ---
 
@@ -281,6 +295,8 @@ Some responses should return `429 Too Many Requests` once the burst is exhausted
 ### 5.1 - Reflection Question
 > Rate limiting on a static site might seem overkill — when would it actually
 > matter in production?
+It would matter if people were sending a bunch of requests at one time. Also, sometimes people use bots on websites, and since they can do things much faster than human beings, you want to limit that.
+
 
 ---
 
@@ -319,6 +335,7 @@ curl -I http://localhost:8080/.env
 ### 6.1 - Reflection Question
 > Why return `404` instead of `403 Forbidden`? What information does each
 > status code leak to an attacker?
+With a 404, it makes it seem like the file doesn't exist. Then the hacker would be likelier to stop trying. If it says forbidden, the hacker knows he's on the correct path.
 
 ---
 
