@@ -82,17 +82,6 @@ curl -I http://localhost:8080/
 ### 0.1 - Reflection Question
 > What headers does nginx send by default? Are any of them surprising?
 The comment below contains the headers sent. The only unexpected one is the ETag. I'm not sure what that means. Other than that they all seem like pretty normal tags.
-<!-- HTTP/1.1 200 OK
-Server: nginx/1.29.5
-Date: Mon, 11 May 2026 01:53:18 GMT
-Content-Type: text/html
-Content-Length: 20272
-Last-Modified: Mon, 09 Mar 2026 18:24:49 GMT
-Connection: keep-alive
-ETag: "69af1071-4f30"
-Accept-Ranges: bytes -->
-
-The comment below contains the headers sent. The only unexpected one is the ETag. I'm not sure what that means. Other than that they all seem like pretty normal tags.
 ```
 HTTP/1.1 200 OK
 Server: nginx/1.29.5
