@@ -212,7 +212,7 @@ a tunneling tool, or deploy to a VPS for full scoring).
 > and observe the browser console error. What does this teach you about
 > how CSP is enforced?
 
-ADD ANSWER HERE
+SKIP
 
 ---
 
@@ -257,8 +257,11 @@ error_page 404 /404.html;
 ```
 
 ### 4.1 - Reflection Questions
-> If every route returns `index.html` with a 200, what are the SEO implications?
-> How do SSR frameworks like Next.js solve this problem?
+> If every route returns `index.html` with a 200, what are the Search Engine Optimization (SEO) implications?
+It may consider those links broken and be less likely to recommend the site.
+> How do Server Side Rendering (SSR) frameworks like Next.js solve this problem?
+I'm not sure, but maybe they can leave out elements that have broken links or unnecessary redirects.
+
 
 ---
 
@@ -357,6 +360,10 @@ Submit a short written response (200-500 words) answering the following:
 3. What does this lab reveal about what managed hosting platforms like Netlify
    are silently doing on your behalf?
 
+
+The gzip was the only one that seemed to work despite my changes to the order of statements, so it had the most visible impact.
+The location redirecting would hopefully stop hackers from getting at important files. 
+Hosting platforms take care of some basic security and optimization concerns that you have to do yourself otherwise. It's kind of tedious to do, so it's nice that certain platforms have streamlined it.
 ---
 
 ## Grading Rubric
